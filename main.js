@@ -14,7 +14,7 @@ $(document).ready(function() {
   //-----CAMBIO MESE CON FRECCETTE
 
   $('.fa-caret-left').click(function() {
-    $('.mese h1').remove()
+    $('.mese .casella').remove()
     var mioMese = $('.nome_mese').find('h1').text()
     console.log(mioMese);
     $('.month_select .month').each(function(index) {
@@ -28,7 +28,7 @@ $(document).ready(function() {
   });
 
   $('.fa-caret-right').click(function() {
-    $('.mese h1').remove()
+    $('.mese .casella').remove()
     var mioMese = $('.nome_mese').find('h1').text()
     console.log(mioMese);
     $('.month_select .month').each(function(index) {
@@ -45,16 +45,18 @@ $(document).ready(function() {
 
 
 
-
-//---------------------
-
-
-  $('.selector option').click(function() {
-    var paese = $(this).val()
-    console.log(paese);
-    $('.nazione_scelta').text(paese)
-    $('.selector_mese').show();
-  });
+$(document).on('click', '.selector option', function() {
+  var paese = $(this).val()
+  console.log(paese);
+  $('.nazione_scelta').text(paese)
+  $('.selector_mese').show();
+});
+  // $('.selector option').click(function() {
+  //   var paese = $(this).val()
+  //   console.log(paese);
+  //   $('.nazione_scelta').text(paese)
+  //   $('.selector_mese').show();
+  // });
 
   $('.month_select .month').click(function() {
     $('.mese .casella').remove()//devo usare remove e non hide perche poi sotto ho l index, e se nascondo e basta, l index continua a salire perche
@@ -75,13 +77,13 @@ $(document).ready(function() {
     var giorniMese = moment(dataMese).daysInMonth();
     // console.log(giorniMese);
 
-
-    //una volta saputi i giorni del mese posso appenderli
+    //una volta saputi i giorni del mese posso appenderli (elenco)
     // for (var i = 1; i <= giorniMese; i++) {
     //   $('.mese').append('<h1>' + i + '   ' + mese + '</h1>')
     // }
 
 
+    //una volta saputi i giorni del mese posso appenderli (griglia)
     for (var i = 1; i <= giorniMese; i++) {
       var copia = $('.templates .casella').clone()
       $('.mese').append(copia)
