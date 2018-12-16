@@ -45,18 +45,12 @@ $(document).ready(function() {
 
 
 
-$(document).on('click', '.selector option', function() {
-  var paese = $(this).val()
-  console.log(paese);
-  $('.nazione_scelta').text(paese)
-  $('.selector_mese').show();
-});
-  // $('.selector option').click(function() {
-  //   var paese = $(this).val()
-  //   console.log(paese);
-  //   $('.nazione_scelta').text(paese)
-  //   $('.selector_mese').show();
-  // });
+  $('.selector option').click(function() {
+    var paese = $(this).val()
+    console.log(paese);
+    $('.nazione_scelta').text(paese)
+    $('.selector_mese').show();
+  });
 
   $('.month_select .month').click(function() {
     $('.mese .casella').remove()//devo usare remove e non hide perche poi sotto ho l index, e se nascondo e basta, l index continua a salire perche
@@ -77,11 +71,12 @@ $(document).on('click', '.selector option', function() {
     var giorniMese = moment(dataMese).daysInMonth();
     // console.log(giorniMese);
 
+
+
     //una volta saputi i giorni del mese posso appenderli (elenco)
     // for (var i = 1; i <= giorniMese; i++) {
     //   $('.mese').append('<h1>' + i + '   ' + mese + '</h1>')
     // }
-
 
     //una volta saputi i giorni del mese posso appenderli (griglia)
     for (var i = 1; i <= giorniMese; i++) {
@@ -168,12 +163,27 @@ $(document).on('click', '.selector option', function() {
       console.log(dateMese);
 
 
-      //------
+      //------GIORNO DELLA SETTIMANA
+      var weekDays = ['Dom','Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab']
+      var giorniSettMese = []
+      for (var i = 0; i < dateMese.length; i++) {
+        var date = moment(dateMese[i]);
+        var dow = date.day();
+        console.log(dow);
+        var giornoSett = weekDays[dow];
+        console.log(giornoSett);
+        giorniSettMese.push(giornoSett)
+      }
+      console.log(giorniSettMese);
+      $('.mese .casella').each(function(index) {
+        $(this).find('h3').text(giorniSettMese[index])
+      });
+      //-------
       $('.casella').mouseenter(function() {
         $('.casella').find('h1').css('margin-bottom', '0px');
         $(this).find('h1').css('margin-bottom', '10px');
       });
-
+      //---------
       },
       error: function() {
       console.log("error");
