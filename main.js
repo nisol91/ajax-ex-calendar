@@ -131,13 +131,13 @@ $(document).ready(function() {
 
       $('.mese h1').each(function(index, h1) {
         if (index < 9) {
-          if (numero >+ 10) {
+          if (numero >= 10) {
             data_1 = '2017-' + numero + '-0' + (index + 1)
           } else if (numero < 10) {
             data_1 = '2017-0' + numero + '-0' + (index + 1)
           }
         } else if (index >= 9){
-          if (numero >+ 10) {
+          if (numero >= 10) {
             data_1 = '2017-' + numero + '-' + (index + 1)
           } else if (numero < 10) {
             data_1 = '2017-0' + numero + '-' + (index + 1)

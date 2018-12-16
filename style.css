@@ -59,7 +59,7 @@
 .down {
 }
 .mese {
-  border: .7px solid grey;
+  /* border: .7px solid grey; */
   border-radius: 2px;
   width: 900px;
   height: 400px;
