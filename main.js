@@ -13,8 +13,11 @@ $(document).ready(function() {
 
   //-----CAMBIO MESE CON FRECCETTE
 
+  //un modo alternativo al mio per cambiare mese, invece che .prev e .next, e' usando
+  //moment con moment().subtract(1, 'month') o moment().add...
+
   $('.fa-caret-left').click(function() {
-    $('.mese .casella').remove()
+    $('.mese .casella').remove()// in alternativa al remove facevo $('.mese .casella').html('')
     var mioMese = $('.nome_mese').find('h1').text()
     console.log(mioMese);
     $('.month_select .month').each(function(index) {
