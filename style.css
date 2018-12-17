@@ -32,6 +32,7 @@
 .nome_mese i {
   margin: 0 80px;
   cursor: pointer;
+  font-size: 25px;
 }
 .mese h1, .mese h2, .mese h3 {
   font-size: 10px;
