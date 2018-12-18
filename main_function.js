@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  //funzione principale con chiamata ajax
+  //funzione principale con chiamata AJAX
   function getMonth(numero, mese) {
 
     if (numero < 10) {
@@ -178,16 +178,16 @@ $(document).ready(function() {
     });
   });
 
-//-------CAMBIO MESE DA MENU A TENDINA
+  //-------CAMBIO MESE DA MENU A TENDINA
 
-
-  $('.selector option').click(function() {
+  //la prima cosa in assoluto che devo fare e' selezionare la nazione
+  $('.selector').change(function() {
     var paese = $(this).val()
     console.log(paese);
     $('.nazione_scelta').text(paese)
     $('.selector_mese').show();
   });
-
+  //poi seleziono il mese interessato
   $('.month_select .month').click(function() {
     $('.mese .casella').remove()//devo usare remove e non hide perche poi sotto ho l index, e se nascondo e basta, l index continua a salire perche
     //continuano ad appendersi h1 che si sono nascosti, ma ci sono. se li rimuovo risolvo il problema.
